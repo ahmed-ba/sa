@@ -11,7 +11,20 @@ public student = new Student ();
 constructor ( private studentService : StudentService ) { }
 ngOnInit (): void {
 }
-save () {
-this . studentService . AddStudent ({ ... this . student })
-}
+save() {
+    if (!this.student.id) {
+    this.studentService.AddStudent({ ...this.student }).then((res) => {
+    this.formAdd.resetForm();
+    })
+    } else {
+    this.studentService.updateStudent(this.student);
+    }
+    }
+getStudent(id: string) {
+    this.studentService.getStudent(id).subscribe(res => {
+    this.student = res.data() as Student;
+    this.student.id = res.id;    
+    });
+    }
+
 }

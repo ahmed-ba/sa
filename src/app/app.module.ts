@@ -9,13 +9,16 @@ import { environment } from '../environments/environment' ;
 import { RouterModule , Routes } from '@angular/router';
 import { AddStudentComponent } from './add-student/add-student.component' ;
 import { StudentService } from './shared/services/student.service';
+import { ListStudentsComponent } from './list-students/list-students.component';
 const routes : Routes = [
-{ path: 'add-student' , component : AddStudentComponent }
+{ path: 'add-student' , component : AddStudentComponent },
+{ path: 'all-student', component: ListStudentsComponent },
 ];
 @NgModule({
   declarations: [
     AppComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    ListStudentsComponent
   ],
   imports: [
     BrowserModule,
