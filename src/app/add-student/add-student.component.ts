@@ -17,7 +17,11 @@ export class AddStudentComponent implements OnInit {
     ngOnInit(): void {
         this.route.queryParams.subscribe(params => {
             console.log("My Id", params);
-            this.getStudent(params.id);
+            if(params.id)
+            {
+                this.getStudent(params.id);
+            }
+            
         })
     }
     save() {

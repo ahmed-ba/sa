@@ -22,9 +22,9 @@
 <td> {{student.age}} </td>
 <td> {{student.phoneNumber}} </td>
 <td>
-  <button type="button" class="btn btn-danger"
+  <button type="button" class="btn btn-danger mx-md-1"
   (click)="delete(student.id)">Delete</button>
-  <button type="button" class="btn btn-primary" [routerLink]="'/add-student'"
+  <button type="button" class="btn btn-primary mx-md-1" [routerLink]="'/add-student'"
   [queryParams]="{id: student.id}">Edit</button></td>
 </tr>
 </tbody>
