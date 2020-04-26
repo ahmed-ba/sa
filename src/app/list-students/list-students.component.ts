@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../shared/services/student.service';
 import { Student } from '../shared/models/student';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-list-students',
@@ -26,6 +27,17 @@ id: e.payload.doc.id,
 });
 }
 delete(id: string) {
-  this.studentService.deleteStudent(id);
-  }
+  Swal.fire({
+    title: "Vous etes Sure?",
+
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Confirmer",
+    cancelButtonText: "Annuler",
+  }).then((result) => {
+    this.studentService.deleteStudent(id);
+  });
+}
 }

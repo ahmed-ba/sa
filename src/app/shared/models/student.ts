@@ -5,5 +5,5 @@ age : number ;
 email : string ;
 password : string ;
 id: string;
-
+phoneNumber : number;
 }

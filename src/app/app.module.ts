@@ -10,27 +10,30 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { StudentService } from './shared/services/student.service';
 import { ListStudentsComponent } from './list-students/list-students.component';
+import { ToastrModule } from "ngx-toastr";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
 const routes: Routes = [
   { path: 'add-student', component: AddStudentComponent },
   { path: 'all-student', component: ListStudentsComponent },
 ];
 @NgModule({
-  declarations: [
-    AppComponent,
-    AddStudentComponent,
-    ListStudentsComponent
-  ],
+  declarations: [AppComponent, AddStudentComponent, ListStudentsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserModule, RouterModule.forRoot(routes),
+    BrowserModule,
+    RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(environment.firebase),
 
     AngularFirestoreModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [StudentService,],
-  bootstrap: [AppComponent]
+  providers: [StudentService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
+
